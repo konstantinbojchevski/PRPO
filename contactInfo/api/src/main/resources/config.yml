@@ -1,0 +1,12 @@
+kumuluzee:
+  name: contactInfo
+  version: 1.0-SNAPSHOT
+  env:
+    name: dev
+  server:
+    http:
+      port: 8082
+  health:
+    checks:
+      disk-space-health-check:
+        threshold: 100000000

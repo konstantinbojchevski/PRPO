@@ -1,0 +1,8 @@
+kumuluzee:
+  name: ocena
+  version: 1.0-SNAPSHOT
+  env:
+    name: dev
+  server:
+    http:
+      port: 8081

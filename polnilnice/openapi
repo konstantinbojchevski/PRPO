@@ -1,0 +1,414 @@
+---
+openapi: 3.0.3
+info:
+  title: REST Service
+  version: v1.0.0
+servers:
+- url: http://localhost:8080
+paths:
+  /v1/chargers:
+    get:
+      summary: Get chargers list
+      description: Returns a list of chargers.
+      responses:
+        "200":
+          description: List of chargers
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Charger'
+      security:
+      - none: []
+    post:
+      summary: Adds a new charger
+      description: add charger
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        "204":
+          description: List of chargers
+      security:
+      - none: []
+  /v1/chargers/{id}:
+    put:
+      summary: edit charger
+      description: edit charger
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Charger'
+      responses:
+        "204":
+          description: Edits a charger
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Charger'
+      security:
+      - none: []
+    delete:
+      summary: deletes charger
+      description: delete charger
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Charger'
+      responses:
+        "204":
+          description: Deletes a charger
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Charger'
+      security:
+      - none: []
+  /v1/owners:
+    get:
+      summary: Get owners list
+      description: Returns a list of owners.
+      responses:
+        "200":
+          description: List of owners
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Owner'
+      security:
+      - none: []
+    post:
+      summary: Adds a new owner
+      description: add owner
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        "204":
+          description: List of owners
+      security:
+      - none: []
+  /v1/owners/{id}:
+    put:
+      summary: edit owner
+      description: edit owner
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Owner'
+      responses:
+        "204":
+          description: Edits a owner
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Owner'
+      security:
+      - none: []
+    delete:
+      summary: deletes owner
+      description: delete owner
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Owner'
+      responses:
+        "204":
+          description: Deletes an owner
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Owner'
+      security:
+      - none: []
+  /v1/reservations:
+    get:
+      summary: Get reservations list
+      description: Returns a list of reservations.
+      responses:
+        "200":
+          description: List of reservations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Reservation'
+      security:
+      - none: []
+    post:
+      summary: Adds a new reservation
+      description: add reservation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        "204":
+          description: List of reservations
+      security:
+      - none: []
+  /v1/reservations/{id}:
+    put:
+      summary: edit reservation
+      description: edit reservation
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Reservation'
+      responses:
+        "204":
+          description: Edits a reservation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Reservation'
+      security:
+      - none: []
+    delete:
+      summary: deletes reservation
+      description: delete reservation
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Reservation'
+      responses:
+        "204":
+          description: Deletes a reservation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Reservation'
+      security:
+      - none: []
+  /v1/users:
+    get:
+      summary: Get customers list
+      description: Returns a list of users.
+      responses:
+        "200":
+          description: List of users
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+      security:
+      - none: []
+    post:
+      summary: Adds a new user
+      description: add user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        "204":
+          description: List of users
+      security:
+      - none: []
+  /v1/users/{id}:
+    put:
+      summary: edit user
+      description: edit user
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        "204":
+          description: Edits a user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      security:
+      - none: []
+    delete:
+      summary: deletes user
+      description: delete user
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int32
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        "204":
+          description: Deletes a user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      security:
+      - none: []
+components:
+  schemas:
+    Reservation:
+      type: object
+      properties:
+        charger:
+          $ref: '#/components/schemas/Charger'
+        from_time:
+          type: object
+        id_reservation:
+          format: int32
+          type: integer
+        to_time:
+          type: object
+        user:
+          $ref: '#/components/schemas/User'
+        from:
+          type: object
+        to:
+          type: object
+    Owner:
+      type: object
+      properties:
+        chargers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Charger'
+        firstname_owner:
+          type: string
+        id_owner:
+          format: int32
+          type: integer
+        lastname_owner:
+          type: string
+        personReservations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Reservation'
+        username_owner:
+          type: string
+        firstname:
+          type: string
+        id:
+          format: int32
+          type: integer
+        lastname:
+          type: string
+        username:
+          type: string
+    Charger:
+      type: object
+      properties:
+        chargerReservations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Reservation'
+        closing:
+          type: object
+        id_charger:
+          format: int32
+          type: integer
+        location:
+          type: string
+        name:
+          type: string
+        opening:
+          type: object
+        owner:
+          $ref: '#/components/schemas/Owner'
+        price:
+          format: int32
+          type: integer
+        specifications:
+          type: string
+        reservations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Reservation'
+    User:
+      type: object
+      properties:
+        firstname:
+          type: string
+        id_user:
+          format: int32
+          type: integer
+        lastname:
+          type: string
+        personReservations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Reservation'
+        username:
+          type: string
+        id:
+          format: int32
+          type: integer
+

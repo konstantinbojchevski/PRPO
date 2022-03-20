@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: contactinfo-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: contactInfo
+  template:
+    metadata:
+      labels:
+        app: contactInfo
+    spec:
+      containers:
+        - image: lumburovskalea/contactInfo
+          name: contactinfo
+          ports:
+            - containerPort: 8082
+              name: server
+              protocol: TCP
+
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: contactinfo
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 8082
+      protocol: TCP
+      targetPort: server
+  selector:
+    app: contactInfo

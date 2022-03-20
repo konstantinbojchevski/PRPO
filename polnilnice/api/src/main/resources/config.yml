@@ -1,0 +1,23 @@
+kumuluzee:
+  name: prpo2
+  version: 1.0-SNAPSHOT
+  env:
+    name: dev
+  datasources:
+    - jndi-name: jdbc/LokacijskiOpomnikiDS
+      connection-url: jdbc:postgresql://localhost:5432/users
+      username: postgres
+      password: postgres
+  dev:
+    scan-libraries:
+      - entitete
+  health:
+    checks:
+      data-source-health-checks:
+        - jndi-name: jdbc/LokacijskiOpomnikiDS
+    type: liveness
+integrations:
+  ocena:
+    base-url: http://localhost:8081/v1
+  contactInfo:
+    base-url: http://localhost:8082/v1
