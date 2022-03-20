@@ -21,10 +21,12 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import java.util.List;
+import com.kumuluz.ee.cors.annotations.CrossOrigin;
 
 @Path("reservations")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
+@CrossOrigin(supportedMethods = "GET, PUT, POST, HEAD, DELETE, OPTIONS")
 @ApplicationScoped
 public class ReservationSource {
 
@@ -44,6 +46,8 @@ public class ReservationSource {
             @APIResponse(description = "List of reservations", responseCode = "200",
                     content = @Content(schema = @Schema(implementation = Reservation.class, type=SchemaType.ARRAY)))
     })
+
+    @CrossOrigin
     @GET
     public Response returnreservations(){
         QueryParameters query = QueryParameters.query(uriInfo.getRequestUri().getQuery()).build();
@@ -60,6 +64,7 @@ public class ReservationSource {
             @APIResponse(description = "List of reservations", responseCode = "204")
     })
 
+    @CrossOrigin
     @POST
     public Response addReservation(ReservationDTO reservation){
         umb.addReservation(reservation);
@@ -74,6 +79,7 @@ public class ReservationSource {
                     Reservation.class)))
     })
 
+    @CrossOrigin
     @Path("{id}")
     @PUT
     public Response editreservation(@PathParam("id") Integer id, Reservation reservation){
@@ -88,10 +94,11 @@ public class ReservationSource {
             @APIResponse(description = "Deletes a reservation", responseCode = "204", content = @Content(schema = @Schema(implementation =
                     Reservation.class)))
     })
+
     @Path("{id}")
     @DELETE
-    public Response deletereservation(@PathParam("id") Integer id, Reservation reservation) {
-        boolean odstranjen=reservationBean.deleteReservations(id, reservation);
+    public Response deletereservation(@PathParam("id") Integer id) {
+        boolean odstranjen=reservationBean.deleteReservations(id);
         if(odstranjen){
             return Response.status(Response.Status.GONE).build();
         }else{

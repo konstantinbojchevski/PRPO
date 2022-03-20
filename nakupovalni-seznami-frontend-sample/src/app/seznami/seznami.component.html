@@ -1,0 +1,30 @@
+<h2>Reservations</h2>
+
+<ul>
+    <li *ngFor="let res of reservations" (click)="naPodrobnosti(res.id_reservation)">
+        <div style="display:flex">
+            <span>{{res.id_reservation}}</span>
+            <button class="delete"
+                    (click)="delete(res.id_reservation)">x
+            </button>
+            <br>
+            <div [id]="res.id_reservation" hidden>
+                <p>From: {{res.from}}<br>
+                    To: {{res.to}}<br>
+                </p>
+                <p>
+                    User: <br>
+                    First Name: {{res.user.firstname}}<br>
+                    Last Name: {{res.user.lastname}}
+                </p>
+                <p>
+                    Station: <br>
+                    Name: {{res.charger.name}}<br>
+                    Price: {{res.charger.price}}<br>
+                    Specifications: {{res.charger.specifications}}
+                </p>
+            </div>
+        </div>
+    </li>
+</ul>
+

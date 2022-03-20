@@ -67,7 +67,8 @@ public class ReservationBean {
     }
 
     @Transactional
-    public boolean deleteReservations(Integer id, Reservation r) {
+    public boolean deleteReservations(Integer id) {
+        Reservation r = em.find(Reservation.class, id);
         if(r != null) {
             Reservation rem = em.merge(r);
             em.remove(rem);

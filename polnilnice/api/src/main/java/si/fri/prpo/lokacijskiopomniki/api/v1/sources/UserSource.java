@@ -45,6 +45,7 @@ public class UserSource {
             @APIResponse(description = "List of users", responseCode = "200",
                     content = @Content(schema = @Schema(implementation = User.class, type=SchemaType.ARRAY)))
     })
+
     @GET
     public Response returnUsers(){
         QueryParameters query = QueryParameters.query(uriInfo.getRequestUri().getQuery()).build();
